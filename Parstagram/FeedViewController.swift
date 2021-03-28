@@ -26,7 +26,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         commentBar.sendButton.title = "Post"
         commentBar.delegate = self
         
-
+        //tableView.allowsSelection = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .interactive
@@ -67,23 +67,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func messageInputBar(_ inputBar: MessageInputBar, textViewTextDidChangeTo text: String) {
         
-        let comment = PFObject(className: "comments")
+        let comment = PFObject(className: "Comments")
         comment["text"] = text
         comment["post"] = selectedPost
         comment["author"] = PFUser.current()!
-        selectedPost.add(comment, forKey: "comments")
+        selectedPost.add(comment, forKey: "comments")/*
         selectedPost.saveInBackground{ (success, error) in
             if success {
                 print("Comment saved")
             } else {
                 print("Error saving comment")
             }
-        }
+        }*/
         tableView.reloadData()
 
         self.commentBar.inputTextView.text = nil
         
         self.showsCommentBar = false
+        becomeFirstResponder()
         self.commentBar.inputTextView.resignFirstResponder()
     }
     
@@ -96,6 +97,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func numberOfSections(in tableView: UITableView) -> Int {
         return posts.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
@@ -124,6 +126,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell")!
             return cell
         }
+    }
         
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,9 +140,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             selectedPost = post
         }
         
-   
-        
-        
     }
 
     /*
@@ -152,13 +152,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 
-        func onLogoutButton(_ sender: Any) {
+    @IBAction func onLogoutButton(_ sender: Any) {
         PFUser.logOut()
         let main = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
-        let delegate = UIApplication.shared.delegate as! SceneDelegate
-        delegate.window?.rootViewController = loginViewController
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else { return }
+            delegate.window?.rootViewController = loginViewController
     }
 }
 
-}
+

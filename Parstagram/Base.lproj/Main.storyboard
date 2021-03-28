@@ -177,14 +177,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddCommentCell" id="VM5-k1-wc5">
-                                        <rect key="frame" x="0.0" y="523.5" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="414" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VM5-k1-wc5" id="U5c-VD-rdb">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Comment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-Ke-rUD">
-                                                    <rect key="frame" x="16" y="8" width="390" height="21"/>
+                                                    <rect key="frame" x="16" y="8" width="390" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
@@ -207,12 +207,12 @@
                     <navigationItem key="navigationItem" id="gdY-yS-1KZ">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="66L-Yv-fgf">
                             <connections>
-                                <action selector="onLogoutButton:" destination="X44-da-uK6" id="Suy-bV-1ds"/>
+                                <action selector="onLogoutButton:" destination="X44-da-uK6" id="udo-vP-N2Y"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" image="insta_camera_btn" id="4b4-SA-rBn">
                             <connections>
-                                <segue destination="WRl-Lu-UIS" kind="presentation" id="YVW-8p-FF1"/>
+                                <segue destination="WRl-Lu-UIS" kind="presentation" modalPresentationStyle="fullScreen" id="YVW-8p-FF1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -229,7 +229,7 @@
             <objects>
                 <viewController id="WRl-Lu-UIS" customClass="CameraViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N0L-pt-mPS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8gJ-Aa-Loa">
@@ -251,7 +251,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="onSubmitButton:" destination="WRl-Lu-UIS" eventType="touchUpInside" id="Bn7-as-PFg"/>
+                                    <action selector="onSubmitButton:" destination="WRl-Lu-UIS" eventType="touchUpInside" id="9no-DQ-W1Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -259,7 +259,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="commentField" destination="jjj-TL-IuK" id="4jf-9I-C6l"/>
+                        <outlet property="commentField" destination="jjj-TL-IuK" id="g8z-wr-y64"/>
                         <outlet property="imageView" destination="8gJ-Aa-Loa" id="TTd-vp-U8P"/>
                     </connections>
                 </viewController>

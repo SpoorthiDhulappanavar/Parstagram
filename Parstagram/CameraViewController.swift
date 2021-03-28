@@ -44,6 +44,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
     }
+    
     @IBAction func onCameraButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
